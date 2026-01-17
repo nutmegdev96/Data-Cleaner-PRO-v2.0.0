@@ -1,0 +1,38 @@
+{
+  "ecommerce": {
+    "schema_rules": {
+      "customer_id": "int",
+      "order_date": "datetime",
+      "order_amount": "float",
+      "customer_email": "string"
+    },
+    "business_rules": {
+      "order_amount": {"min": 0, "max": 10000},
+      "quantity": {"min": 1, "max": 100},
+      "discount_percentage": {"min": 0, "max": 100}
+    },
+    "pattern_rules": {
+      "email": "^[^@]+@[^@]+\\.[^@]+$",
+      "phone_number": "^\\+?[1-9]\\d{1,14}$",
+      "postal_code": "^[A-Z0-9\\-]{3,10}$"
+    }
+  },
+  "sales": {
+    "required_columns": ["order_id", "order_date", "customer_id", "amount"],
+    "unique_columns": ["order_id"],
+    "date_ranges": {
+      "order_date": {"min": "2020-01-01", "max": "2023-12-31"}
+    }
+  },
+  "churn": {
+    "data_quality": {
+      "max_null_percentage": 0.05,
+      "min_unique_values": 2,
+      "feature_correlation_threshold": 0.95
+    },
+    "class_balance": {
+      "min_minority_class": 0.1,
+      "max_majority_class": 0.9
+    }
+  }
+}
