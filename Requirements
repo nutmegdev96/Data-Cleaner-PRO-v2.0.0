@@ -1,0 +1,22 @@
+# Data manipulation
+pandas>=1.5.0
+numpy>=1.21.0
+openpyxl>=3.0.0
+
+# Statistical analysis
+scipy>=1.9.0
+scikit-learn>=1.2.0
+
+# Date handling
+python-dateutil>=2.8.0
+
+# Testing
+pytest>=7.0.0
+
+# Optional (for notebooks)
+jupyter>=1.0.0
+ipython>=8.0.0
+
+# Optional (for specific data types)
+sqlalchemy>=1.4.0
+pyarrow>=10.0.0
