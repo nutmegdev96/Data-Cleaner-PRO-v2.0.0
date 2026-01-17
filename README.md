@@ -9,6 +9,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+# 👋 Hi, I'm Simone [nutmegdev96] | Data Analyst
+
+## 🛠️ Tools & Technologies
+- **Languages**: Python, SQL, R
+- **Data Analysis**: Pandas, NumPy, Scikit-learn
+- **Databases**: MySQL, PostgreSQL, BigQuery
+- **Visualization**: Matplotlib, Seaborn, Plotly
+- **Tools**: Git, Docker, Airflow, Tableau
+
 **Professional data cleaning toolkit for everyday data analysis tasks.**  
 A comprehensive Python library that makes data cleaning simple, efficient, and reproducible.
 
