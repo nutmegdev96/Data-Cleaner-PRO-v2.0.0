@@ -1,0 +1,25 @@
+{
+  "cleaning_profile": "comprehensive",
+  "missing_value_threshold": 0.2,
+  "outlier_detection_method": "iqr",
+  "outlier_threshold": 1.5,
+  "column_naming_convention": "snake_case",
+  "data_validation": {
+    "required_columns": ["customer_id", "email", "order_date"],
+    "business_rules": {
+      "age": {"min": 18, "max": 100},
+      "order_amount": {"min": 0},
+      "email_format": "^[^@]+@[^@]+\\.[^@]+$"
+    }
+  },
+  "feature_engineering": {
+    "extract_date_features": true,
+    "create_derived_metrics": true,
+    "handle_categorical_encoding": "onehot"
+  },
+  "export_settings": {
+    "formats": ["csv", "xlsx"],
+    "include_data_dictionary": true,
+    "include_cleaning_report": true
+  }
+}
