@@ -1,5 +1,5 @@
 """
-Test per il modulo transformers.py
+Test module transformers.py
 """
 import pytest
 import pandas as pd
@@ -8,7 +8,7 @@ from datetime import datetime
 from src.transformers import DataTransformer, FeatureEngineer
 
 class TestDataTransformer:
-    """Test per DataTransformer"""
+    """Test DataTransformer"""
     
     def setup_method(self):
         """Setup per ogni test"""
@@ -24,7 +24,7 @@ class TestDataTransformer:
         })
     
     def test_normalize_column(self):
-        """Test normalizzazione colonna"""
+        """Test normalize column"""
         df = self.test_df.copy()
         result = self.transformer.normalize_column(df, 'age')
         
@@ -33,7 +33,7 @@ class TestDataTransformer:
         assert result['age_normalized'].max() <= 1
     
     def test_encode_categorical(self):
-        """Test encoding categoriale"""
+        """Test encoding categorial"""
         df = self.test_df.copy()
         result = self.transformer.encode_categorical(df, 'category')
         
@@ -43,7 +43,7 @@ class TestDataTransformer:
         assert 'category_C' in result.columns
     
     def test_impute_missing_mean(self):
-        """Test imputazione valori mancanti con media"""
+        """Test input missing values"""
         df = self.test_df.copy()
         result = self.transformer.impute_missing(df, 'age', strategy='mean')
         
@@ -67,7 +67,7 @@ class TestDataTransformer:
         assert result['join_date'].dt.year.iloc[0] == 2023
     
     def test_remove_outliers_iqr(self):
-        """Test rimozione outliers con IQR"""
+        """Test outliers con IQR"""
         # Crea dati con outliers
         data = pd.Series([1, 2, 3, 4, 5, 100])  # 100 è un outlier
         result = self.transformer.remove_outliers_iqr(data)
@@ -77,10 +77,10 @@ class TestDataTransformer:
         assert len(result) == 5
 
 class TestFeatureEngineer:
-    """Test per FeatureEngineer"""
+    """Test FeatureEngineer"""
     
     def setup_method(self):
-        """Setup per ogni test"""
+        """Setup for each test"""
         self.engineer = FeatureEngineer()
         
         # Dati transazioni di test
@@ -92,7 +92,7 @@ class TestFeatureEngineer:
         })
     
     def test_create_rfm_features(self):
-        """Test creazione feature RFM"""
+        """Test creation feature RFM"""
         result = self.engineer.create_rfm_features(self.transactions)
         
         # Verifica che le colonne RFM esistano
@@ -104,7 +104,7 @@ class TestFeatureEngineer:
         assert len(result) == 3  # 3 clienti unici
     
     def test_create_time_based_features(self):
-        """Test creazione feature basate sul tempo"""
+        """Test creation feature time based"""
         df = self.transactions.copy()
         result = self.engineer.create_time_based_features(df, 'date')
         
@@ -118,7 +118,7 @@ class TestFeatureEngineer:
         assert result['day_of_week'].max() <= 6
     
     def test_create_aggregated_features(self):
-        """Test feature aggregate per cliente"""
+        """Test feature aggregate per client"""
         result = self.engineer.create_customer_aggregates(self.transactions)
         
         # Verifica colonne aggregate
@@ -147,7 +147,7 @@ class TestFeatureEngineer:
         assert result['age_income_interaction'].iloc[0] == 25 * 50000
     
     def test_create_binned_features(self):
-        """Test binning di feature continue"""
+        """Test binning for feature continue"""
         df = pd.DataFrame({
             'age': [18, 25, 35, 45, 55, 65]
         })
@@ -159,10 +159,10 @@ class TestFeatureEngineer:
         assert result['age_binned'].dtype == 'category'
 
 class TestEcommerceTransformers:
-    """Test specifici per trasformatori e-commerce"""
+    """Test for trasformers e-commerce"""
     
     def test_calculate_customer_lifetime_value(self):
-        """Test calcolo CLV"""
+        """Test calc CLV"""
         from src.transformers import EcommerceTransformer
         
         transformer = EcommerceTransformer()
