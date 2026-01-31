@@ -32,6 +32,6 @@ A comprehensive Python library that makes data cleaning simple, efficient, and r
 
 ## 📦 Installation
 
-### From PyPI (coming soon)
+### From PyPI (coming soon (MARCH2026))
 ```bash
 pip install data-cleaner-pro-v2.0.0
